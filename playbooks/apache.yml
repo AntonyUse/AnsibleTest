@@ -1,3 +1,4 @@
+---
 - shell: dpkg-query -W '{{ item }}'
   with_items:
     - apache2

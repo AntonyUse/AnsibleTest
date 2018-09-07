@@ -1,0 +1,10 @@
+- hosts: nodes
+  become: true
+  tasks:
+  - name: add ansible source
+    shell: apt-add-repository ppa:ansible/ansible
+
+  - name: update servers
+    apt:
+      upgrade: dist
+      update_cache: yes

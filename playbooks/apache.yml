@@ -1,0 +1,11 @@
+- shell: dpkg-query -W '{{ item }}'
+  with_items:
+    - apache2
+  ignore_errors: True
+  register: is_installed
+
+- name: Install web server
+  apt: name={{ item }}
+  with_items:
+    - apache2
+  when: is_installed|failed

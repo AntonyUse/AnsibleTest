@@ -1,0 +1,13 @@
+- shell: dpkg-query -W '{{ item }}'
+  with_items:
+    - mysql-server
+    - phpmyadmin
+  ignore_errors: True
+  register: is_installed
+
+- name: Install DB server
+  apt: name={{ item }}
+  with_items:
+    - mysql-server
+    - phpmyadmin
+  when: is_installed|failed

@@ -1,0 +1,23 @@
+vars:
+  php_packages: 
+    - php7.0
+    - php7.0-common
+    - php7.0-cli
+    - php7.0-intl
+    - php7.0-curl
+    - php7.0-cgi
+    - php7.0-fpm
+    - php7.0-mcrypt
+    - php7.0-mysql
+    - php7.0-gd
+
+- shell: "dpkg-query -W {{ item }}"
+  with_items: 
+    - "{{ php_packages }}"
+  ignore_errors: True
+  register: is_installed
+
+- name: Install web server
+  apt: name={{ item }}
+  with_items: php_packages
+  when: is_installed|failed

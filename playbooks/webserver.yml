@@ -1,0 +1,12 @@
+- name: Install web server
+  apt:
+    name: apache2
+
+- name: Install Mysql
+  apt:
+    name: mysql-server
+
+- name: Install php7
+  apt:
+    name: php7.0 php7.0-fpm php7.0-mysql
+  

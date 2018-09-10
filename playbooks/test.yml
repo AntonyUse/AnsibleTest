@@ -4,4 +4,6 @@
   tasks:
     - name: test connexion
       ping:
-    - file: path= foo.conf state=touch
+    - file: 
+      path: foo.conf
+      state: touch

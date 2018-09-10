@@ -1,0 +1,7 @@
+## YAML Template.
+---
+- hosts: webservers
+  tasks:
+    - name: test connexion
+      ping:
+    - file: path= foo.conf state=touch

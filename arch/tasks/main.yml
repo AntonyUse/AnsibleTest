@@ -1,2 +1,16 @@
 ---
-# tasks file for arch
+- name: Add PHP 7 PPA repository
+  become: true
+  apt_repository:
+    repo: 'ppa:ondrej/php'
+
+- name: Update apt
+  become: yes
+  apt: 
+    update_cache: yes
+
+- name: Installation du package 
+  apt: 
+    name: "{{item}}" 
+    state: latest
+  with_items: "{{php_packages}}"

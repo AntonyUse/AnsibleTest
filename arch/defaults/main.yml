@@ -1,2 +1,4 @@
 ---
-# defaults file for arch
+# defaults file for roles/arch
+- name: Include php packages
+  include_vars: php_packages.yml

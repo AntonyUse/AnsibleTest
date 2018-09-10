@@ -1,2 +1,13 @@
 ---
-# handlers file for arch
+# handlers file for roles/arch
+- name: nginx reload
+  service: 
+    name: nginx 
+    state: reloaded
+
+- name: restart php7-fpm
+  service: 
+    name: php7.1-fpm 
+    enabled: yes 
+    state: restarted
+  become: yes
